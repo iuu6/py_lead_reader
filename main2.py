@@ -117,46 +117,6 @@ def update_timeText():
 
     
 
-'''
-    
-    
-def reminds():
-    top = Toplevel()
-    top.title('使用提示')
-    top.geometry("200x200")
-    t="宝贝可以休息一会啦"
-    msg = Message(top,text = t)
-    msg.config( font=('times', 24, 'italic'))
-    msg.place(x=0,y=0)
-    folder_path="D:/音乐"
-    folder_list = os.listdir(folder_path)#遍历文件夹里面每个文件
-    list=[]
-    count=0
-    for i in folder_list:#将文件夹里的文件按顺序传提给变量i  此处区别os.walk()
-        if os.path.splitext(i)[1]=='.flac':#提取特定后缀文件'.***'
-            list.append (i)
-        #print(type(list))
-            count=count+1
-        #print(count)
-    s=random.randint(0,(count-1))
-    file=list[s]
-    fil=folder_path+"\\"+file
-    pygame.mixer.music.load(fil)
-    pygame.mixer.music.play(1,0)
-    lbTime=tkinter.Label(top,fg="red",anchor='w')
-    lbTime.place(x=100,y=45)
-    def autoclose():
-        for i in range(300):
-            lbTime['text']='距离窗口关闭还有{}秒'.format(300-i)
-            time.sleep(1)
-        top.destroy()
-    t=threading.Thread(target=autoclose)
-    t.start()
-    loopl=top.after(60*60000,reminds)
-
-'''
-    
-
 def play():#播放音乐
     f=callback()#选择制定文件
     pygame.mixer.music.load(f)
